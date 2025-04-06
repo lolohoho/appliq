@@ -5,6 +5,9 @@ import { LogOut } from "lucide-react";
 import { ModeToggle } from "./ModeToggle";
 import { buttonVariants } from "./ui/button";
 import Link from "next/link";
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+import { useQuery } from "@tanstack/react-query";
+import { isUserSubscribed } from "@/app/premium/actions";
 
 interface RouteProps {
 	href: string;
@@ -27,8 +30,13 @@ const routeList: RouteProps[] = [
 ];
 
 export const Navbar = () => {
-	const isSubscribed = true;
-	const isAuthenticated = true;
+	const { data } = useQuery({
+		queryKey: ["isUserSubscribed"],
+		queryFn: async () => isUserSubscribed(),
+	});
+
+	const isSubscribed = data?.subscribed;
+	const { isAuthenticated } = useKindeBrowserClient();
 	return (
 		<header
 			className='sticky border-b-[1px] top-0 z-40 w-full  dark:border-b-slate-700 overflow-x-hidden
@@ -40,7 +48,7 @@ export const Navbar = () => {
 					<NavigationMenuItem className='font-bold md:flex hidden'>
 						<a rel='noreferrer noopener' href='/' className='ml-2 font-bold text-xl flex'>
 							<span className='uppercase bg-gradient-to-r from-[#667EEA] to-[#764BA2] text-transparent bg-clip-text'>
-								🚀 Next Stripe
+								🚀 AppliQ
 							</span>
 						</a>
 					</NavigationMenuItem>
@@ -61,13 +69,13 @@ export const Navbar = () => {
 						{isAuthenticated && isSubscribed && (
 							<Link
 								rel='noreferrer noopener'
-								href={"#"}
+								href={process.env.NEXT_PUBLIC_STRIPE_CUSTOMER_PORTAL_URL!}
 								target='_blank'
 								className={`text-[17px] ${buttonVariants({
 									variant: "ghost",
 								})}`}
 							>
-								Billing Portal
+								Billing Portalg
 							</Link>
 						)}
 					</nav>
@@ -93,7 +101,34 @@ export const Navbar = () => {
 								Login
 							</Link>
 						)}
-
+						{!isAuthenticated && (
+							<Link
+								rel='noreferrer noopener'
+								href='/api/auth/signup'
+								// shining animated button with purple gradient
+								className={`border bg-gradient-to-r from-[#667EEA] to-[#764BA2] text-white ${buttonVariants(
+									{
+										variant: "secondary",
+									}
+								)}`}
+							>
+								Sign up ✨
+							</Link>
+						)}
+						{isAuthenticated && !isSubscribed && (
+							<Link
+								rel='noreferrer noopener'
+								href='/buy'
+								// shining animated button with purple gradient
+								className={`border bg-gradient-to-r from-[#667EEA] to-[#764BA2] text-white ${buttonVariants(
+									{
+										variant: "secondary",
+									}
+								)}`}
+							>
+								Buy ✨
+							</Link>
+						)}
 						{isAuthenticated && isSubscribed && (
 							<Link
 								rel='noreferrer noopener'
