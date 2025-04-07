@@ -12,20 +12,28 @@ const Page = () => {
 	const { data } = useQuery({
 		queryKey: ["checkAuthStatus"],
 		queryFn: async () => await checkAuthStatus(),
+		retry: 2, // Réessayer si échec
+		staleTime: 1000, // Attendre 1 seconde avant de considérer les données obsolètes
 	});
 
 	useEffect(() => {
+		console.log("Data from checkAuthStatus:", data);
+		console.log("User from client:", user);
+		if (!data) return;
+
 		const stripePaymentLink = localStorage.getItem("stripePaymentLink");
-		if (data?.success && stripePaymentLink && user?.email) {
+		if (data.success && stripePaymentLink && user?.email) {
+			console.log("Redirecting to Stripe:", stripePaymentLink);
 			localStorage.removeItem("stripePaymentLink");
 			router.push(stripePaymentLink + `?prefilled_email=${user.email}`);
-		} else if (data?.success === false) {
+		} else if (data.success) {
+			console.log("Redirecting to /dashboard");
+			router.push("/dashboard");
+		} else if (data.success === false) {
+			console.log("Redirecting to / due to failure");
 			router.push("/");
 		}
 	}, [router, user, data]);
-
-	if (data?.success) router.push("/");
-
 	return (
 		<div className='mt-20 w-full flex justify-center'>
 			<div className='flex flex-col items-center gap-2'>
