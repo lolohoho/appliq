@@ -30,13 +30,15 @@ const routeList: RouteProps[] = [
 ];
 
 export const Navbar = () => {
+	const { isAuthenticated } = useKindeBrowserClient();
+
 	const { data } = useQuery({
 		queryKey: ["isUserSubscribed"],
 		queryFn: async () => isUserSubscribed(),
 	});
 
 	const isSubscribed = data?.subscribed;
-	const { isAuthenticated } = useKindeBrowserClient();
+
 	return (
 		<header
 			className='sticky border-b-[1px] top-0 z-40 w-full  dark:border-b-slate-700 overflow-x-hidden
@@ -48,7 +50,7 @@ export const Navbar = () => {
 					<NavigationMenuItem className='font-bold md:flex hidden'>
 						<a rel='noreferrer noopener' href='/' className='ml-2 font-bold text-xl flex'>
 							<span className='uppercase bg-gradient-to-r from-[#667EEA] to-[#764BA2] text-transparent bg-clip-text'>
-								🚀 AppliQ
+								🚀 Next Stripe
 							</span>
 						</a>
 					</NavigationMenuItem>
@@ -75,7 +77,7 @@ export const Navbar = () => {
 									variant: "ghost",
 								})}`}
 							>
-								Billing Portalg
+								Billing Portal
 							</Link>
 						)}
 					</nav>
@@ -101,8 +103,7 @@ export const Navbar = () => {
 								Login
 							</Link>
 						)}
-					
-						
+
 						{isAuthenticated && isSubscribed && (
 							<Link
 								rel='noreferrer noopener'
