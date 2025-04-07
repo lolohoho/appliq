@@ -118,7 +118,7 @@ export const Navbar = () => {
 						{isAuthenticated && !isSubscribed && (
 							<Link
 								rel='noreferrer noopener'
-								href='/buy'
+								href='/'
 								// shining animated button with purple gradient
 								className={`border bg-gradient-to-r from-[#667EEA] to-[#764BA2] text-white ${buttonVariants(
 									{
