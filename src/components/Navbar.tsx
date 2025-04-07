@@ -101,34 +101,8 @@ export const Navbar = () => {
 								Login
 							</Link>
 						)}
-						{!isAuthenticated && (
-							<Link
-								rel='noreferrer noopener'
-								href='/api/auth/login'
-								// shining animated button with purple gradient
-								className={`border bg-gradient-to-r from-[#667EEA] to-[#764BA2] text-white ${buttonVariants(
-									{
-										variant: "secondary",
-									}
-								)}`}
-							>
-								Sign up ✨
-							</Link>
-						)}
-						{isAuthenticated && !isSubscribed && (
-							<Link
-								rel='noreferrer noopener'
-								href='/'
-								// shining animated button with purple gradient
-								className={`border bg-gradient-to-r from-[#667EEA] to-[#764BA2] text-white ${buttonVariants(
-									{
-										variant: "secondary",
-									}
-								)}`}
-							>
-								Buy ✨
-							</Link>
-						)}
+					
+						
 						{isAuthenticated && isSubscribed && (
 							<Link
 								rel='noreferrer noopener'

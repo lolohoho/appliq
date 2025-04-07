@@ -3,7 +3,7 @@ const nextConfig = {
     async headers() {
       return [
         {
-          source: '/:path*', // ou '/api/:path*' si tu veux limiter aux API routes
+          source: '/:path*', // ou '/api/:path*' si tu,k,;,; veux limiter aux API routes
           headers: [
             {
               key: 'Access-Control-Allow-Origin',
