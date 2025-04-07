@@ -7,7 +7,7 @@ const nextConfig = {
           headers: [
             {
               key: 'Access-Control-Allow-Origin',
-              value: '*' // ou 'https://www.appliq.fr' si tu veux restreindre
+              value: 'https://www.appliq.fr' 
             },
             {
               key: 'Access-Control-Allow-Methods',
