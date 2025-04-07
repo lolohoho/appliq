@@ -104,7 +104,7 @@ export const Navbar = () => {
 						{!isAuthenticated && (
 							<Link
 								rel='noreferrer noopener'
-								href='/api/auth/signup'
+								href='/api/auth/login'
 								// shining animated button with purple gradient
 								className={`border bg-gradient-to-r from-[#667EEA] to-[#764BA2] text-white ${buttonVariants(
 									{
