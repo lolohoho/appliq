@@ -83,7 +83,7 @@ export const Navbar = () => {
 					</nav>
 
 					<div className='hidden md:flex gap-2'>
-						{/* {isAuthenticated && (
+						{isAuthenticated && (
 							<Link
 								rel='noreferrer noopener'
 								href='/api/auth/logout'
@@ -92,7 +92,7 @@ export const Navbar = () => {
 								Logout
 								<LogOut className='w-4 h-4 ml-2' />
 							</Link>
-						)} */}
+						)}
 
 						{!isAuthenticated && (
 							<Link
