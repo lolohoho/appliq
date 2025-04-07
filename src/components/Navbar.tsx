@@ -9,6 +9,7 @@ import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { useQuery } from "@tanstack/react-query";
 import { isUserSubscribed } from "@/app/premium/actions";
 
+
 interface RouteProps {
 	href: string;
 	label: string;
@@ -30,8 +31,8 @@ const routeList: RouteProps[] = [
 ];
 
 export const Navbar = () => {
-	const { isAuthenticated } = useKindeBrowserClient();
 
+	const { isAuthenticated} = useKindeBrowserClient();
 	const { data } = useQuery({
 		queryKey: ["isUserSubscribed"],
 		queryFn: async () => isUserSubscribed(),
@@ -94,6 +95,15 @@ export const Navbar = () => {
 								<LogOut className='w-4 h-4 ml-2' />
 							</Link>
 						)}
+						{/* {isAuthenticated && (
+							<button
+								onClick={() => LogOut()}
+								className={`border ${buttonVariants({ variant: "secondary" })}`}
+							>
+								Logout
+								<LogOut className='w-4 h-4 ml-2' />
+							</button>
+						)} */}
 
 						{!isAuthenticated && (
 							<Link
