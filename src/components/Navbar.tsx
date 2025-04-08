@@ -1,11 +1,12 @@
 "use client";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu";
-
+import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { LogOut } from "lucide-react";
 import { ModeToggle } from "./ModeToggle";
 import { buttonVariants } from "./ui/button";
 import Link from "next/link";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+
 import { useQuery } from "@tanstack/react-query";
 import { isUserSubscribed } from "@/app/premium/actions";
 
@@ -32,7 +33,7 @@ const routeList: RouteProps[] = [
 
 export const Navbar = () => {
 
-	const { isAuthenticated} = useKindeBrowserClient();
+	const { isAuthenticated } = useKindeBrowserClient();
 	const { data } = useQuery({
 		queryKey: ["isUserSubscribed"],
 		queryFn: async () => isUserSubscribed(),
@@ -84,7 +85,7 @@ export const Navbar = () => {
 					</nav>
 
 					<div className='hidden md:flex gap-2'>
-						{isAuthenticated && (
+						{/* {isAuthenticated && (
 							<Link
 								rel='noreferrer noopener'
 								href='/api/auth/logout'
@@ -94,17 +95,9 @@ export const Navbar = () => {
 								Logout
 								<LogOut className='w-4 h-4 ml-2' />
 							</Link>
-						)}
-						{/* {isAuthenticated && (
-							<button
-								onClick={() => LogOut()}
-								className={`border ${buttonVariants({ variant: "secondary" })}`}
-							>
-								Logout
-								<LogOut className='w-4 h-4 ml-2' />
-							</button>
 						)} */}
 
+						{/* <LogoutLink >Log out</LogoutLink> */}
 						{!isAuthenticated && (
 							<Link
 								rel='noreferrer noopener'
@@ -114,7 +107,14 @@ export const Navbar = () => {
 								Login
 							</Link>
 						)}
-
+						{isAuthenticated && (
+						<LogoutLink
+							className={`border ${buttonVariants({ variant: "secondary" })}`}
+						>
+							Logout
+							<LogOut className="w-4 h-4 ml-2" />
+						</LogoutLink>
+						)}
 						{isAuthenticated && isSubscribed && (
 							<Link
 								rel='noreferrer noopener'
