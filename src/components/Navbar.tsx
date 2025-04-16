@@ -157,10 +157,7 @@ const Navbar = () => {
 										>
 										Register ✨
 									</RegisterLink>
-									{/* <Link href="/auth/sign-up" className={buttonVariants({ size: "sm", })}>
-										Créer mon site
-										<ZapIcon className="size-3.5 ml-1.5 text-orange-500 fill-orange-500" />
-									</Link> */}
+									
 								</div>
 							</>
 						)}

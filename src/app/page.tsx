@@ -75,7 +75,7 @@ export default function Home() {
 							</h2>
 							<p className="text-muted-foreground mt-6 max-w-md mx-auto">
 								Sites performants avec Next.js, React, Tailwind, Node.js, Radix UI & co.
-								Une stack moderne, pour un impact réel."
+								Une stack moderne, pour un impact réel.
 							</p>
 							<div className="mt-6">
 								<Button>
