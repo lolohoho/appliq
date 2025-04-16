@@ -7,13 +7,15 @@ type PaymentLinkProps = {
 	href: string;
 	paymentLink?: string;
 	text: string;
+	taille:number
 };
 
-const PaymentLink = ({ href, paymentLink, text }: PaymentLinkProps) => {
+const PaymentLink = ({ href, paymentLink, text, taille }: PaymentLinkProps) => {
 	return (
 		<Link
 			href={href}
-			className={buttonVariants()}
+			// className={buttonVariants() }
+			className={buttonVariants({ size: taille === 2 ? "xl" : "default" })}
 			onClick={() => {
 				if (paymentLink) {
 					localStorage.setItem("stripePaymentLink", paymentLink);

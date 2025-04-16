@@ -23,7 +23,7 @@ model User {
   name       String?
   image      String?
   plan       Plan    @default(free)
-  customerId String? @unique // Stripe customer ID, this will be important when we need to delete the subscription
+  customerId String? //@unique // Stripe customer ID, this will be important when we need to delete the subscription
 
   Subscription Subscription?
 

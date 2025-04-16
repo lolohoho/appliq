@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+
 import Navbar from "@/components/Navbar";
 import TanStackProvider from "@/components/providers/TanStackProvider";
 import Footer from "@/components/Footer";
-
+import { cn } from "@/lib/utils";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,23 +20,27 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='en' suppressHydrationWarning >
-			<head>
-				{process.env.NODE_ENV === 'development' && (
-					<meta name="google" content="notranslate" />
-				)}
-			</head>
-			{/* <body className="overflow-x-hidden" > */}
-			<body className={`overflow-x-hidden ${inter.className}`}>
-				<ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
-					<TanStackProvider>
+		// <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
+			<html lang="en" className="scrollbar" suppressHydrationWarning >
+				<body
+					className={cn(
+						"min-h-screen bg-background text-foreground antialiased !font-default overflow-x-hidden",
+
+					)}
+				>
+
+					<main className="mt-20 mx-auto w-full z-0 relative">
+						{children}
+					</main>
+					{/* <TanStackProvider>
 
 						<Navbar />
-						{children}
+						
 						<Footer />
-					</TanStackProvider>
-				</ThemeProvider>
-			</body>
-		</html>
+					</TanStackProvider> */}ss
+
+				</body>
+			</html>
+		// </ThemeProvider>
 	);
 }

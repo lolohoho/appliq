@@ -3,76 +3,23 @@ import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
 import Link from "next/link";
-import PaymentLink from "./PaymentLink";
+import PaymentLink from "@/components/PaymentLink";
+import { pricingList, PopularPlanType, PricingProps } from "@/data";
 
-enum PopularPlanType {
-	NO = 0,
-	YES = 1,
-}
-
-interface PricingProps {
-	title: string;
-	popular: PopularPlanType;
-	price: number;
-	description: string;
-	buttonText: string;
-	benefitList: string[];
-	href: string;
-	billing: string;
-	paymentLink?: string;
-
-}
-
-const pricingList: PricingProps[] = [
-	{
-		title: "Free",
-		popular: 0,
-		price: 0,
-		description: "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-		buttonText: "Get Started",
-		benefitList: ["1 Team member", "2 GB Storage", "Upto 4 pages", "Community support", "lorem ipsum dolor"],
-		href: "/api/auth/login",
-		billing: "/month",
-	},
-	{
-		title: "Premium",
-		popular: 1,
-		price: 10,
-		description: "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-		buttonText: "Buy Now",
-		benefitList: ["4 Team member", "4 GB Storage", "Upto 6 pages", "Priority support", "lorem ipsum dolor"],
-		href: "/api/auth/login",
-		paymentLink: process.env.STRIPE_MONTHLY_PLAN_LINK,
-
-		billing: "/month",
-	},
-	{
-		title: "Enterprise",
-		popular: 0,
-		price: 99,
-		description: "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-		buttonText: "Buy Now",
-		benefitList: ["10 Team member", "8 GB Storage", "Upto 10 pages", "Priority support", "lorem ipsum dolor"],
-		href: "/api/auth/login",
-		billing: "/year",
-		paymentLink: process.env.STRIPE_YEARLY_PLAN_LINK,
-
-	},
-];
 
 export const Pricing = () => {
 	return (
-		<section id='pricing' className='container py-24 sm:py-32'>
+		<section id='tarifs' className='container py-24 sm:py-32' >
 			<h2 className='text-3xl md:text-4xl font-bold text-center'>
-				Get
+			Choisissez votre 
 				<span className='bg-gradient-to-b from-[#667EEA] to-[#764BA2] uppercase text-transparent bg-clip-text'>
 					{" "}
-					Unlimited{" "}
+					formule{" "}
 				</span>
-				Access
+				
 			</h2>
 			<h3 className='text-xl text-center text-muted-foreground pt-4 pb-8'>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias reiciendis.
+			Quel que soit votre projet, nous avons une offre adaptée à vos besoins et à votre budget.
 			</h3>
 			<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
 				{pricingList.map((pricing: PricingProps) => (
@@ -85,19 +32,43 @@ export const Pricing = () => {
 						}
 					>
 						<CardHeader>
-							<CardTitle className='flex item-center justify-between'>
+							<CardTitle className='flex item-center justify-center'>
 								{pricing.title}
 								{pricing.popular === PopularPlanType.YES ? (
-									<Badge variant='secondary' className='text-sm text-primary'>
+									<Badge variant='secondary' className='text-sm text-primary mx-2'>
 										Most popular
 									</Badge>
 								) : null}
 							</CardTitle>
-							<div>
-								<span className='text-3xl font-bold'>${pricing.price}</span>
+							{/* <div>
+								<span className='text-3xl font-bold'>{pricing.price}€</span>
 								<span className='text-muted-foreground'> {pricing.billing}</span>
+							</div> */}
+							{/* <div className="bg-black text-white p-6 rounded-lg flex flex-col items-center justify-center min-h-[150px] w-full max-w-xs mx-auto shadow-lg hover:scale-105 transition-transform duration-300">
+								
+								<div className="bg-gray-900 p-4 rounded-md text-xl text-gray-400 font-semibold mb-2">
+									79 € <span className="text-sm italic">setup</span>
+								</div>
+								
+								<div className="text-gray-500 text-lg">+</div>
+								
+								<div className="flex items-baseline">
+									<span className="text-4xl font-extrabold">9 €</span>
+									<span className="text-sm text-gray-500 ml-1">/mois</span>
+								</div>
+							</div> */}
+							<div className=" text-white p-4 rounded-lg flex flex-col items-center justify-center min-h-[250px] w-full max-w-xs mx-auto shadow-lg hover:scale-105 transition-transform duration-300">
+								{/* <h3 className="text-2xl font-bold mb-4">Starter</h3> */}
+								<div className="text-xl bg-gray-900 text-gray-400 p-3 rounded-md font-semibold mb-2">
+								{pricing.setupprice}	 € <span className="text-sm italic">setup</span>
+								</div>
+								<div className="text-gray-500 text-lg">+</div>
+								<div className="flex items-baseline">
+									<span className="text-4xl font-extrabold">{pricing.price} €</span>
+									<span className="text-sm text-gray-500 ml-1">/mois</span>
+								</div>
+								{/* <p className="text-gray-300 text-sm mt-4 text-center">{pricing.benefitList[0]}</p> */}
 							</div>
-
 							<CardDescription>{pricing.description}</CardDescription>
 						</CardHeader>
 
@@ -109,6 +80,8 @@ export const Pricing = () => {
 								href={pricing.href}
 								text={pricing.buttonText}
 								paymentLink={pricing.paymentLink}
+								taille={2}
+
 							/>
 						</CardContent>
 

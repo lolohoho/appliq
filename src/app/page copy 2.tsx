@@ -6,10 +6,6 @@ import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { Pricing } from "@/components/Pricing";
 import Templates from "@/components/Templates";
 import { Metadata } from "next";
-import { LampContainer } from "@/components/ui/lamp"
-import { Button } from "@/components/ui/button";
-import { ArrowRightIcon, CreditCardIcon, StarIcon } from "lucide-react";
-
 export const metadata: Metadata = {
 	title: 'Web apps nouvelle génération | Vous méritez mieux qu’un site vitrine',
 	description: 'Des fonctionnalités avancées, une interface d’exception, des performances optimisées. Nous concevons des applications web sur-mesure avec Next.js, alliant design et puissance.',
@@ -39,13 +35,12 @@ export const metadata: Metadata = {
 };
 export default function Home() {
 	return (
-		<main className="overflow-x-hidden scrollbar-hide size-full">
-
-			<Hero />
+		<main>
+			{/* <Hero /> */}
 			{/* <div className="overflow-x-hidden scrollbar-hide size-full"> */}
 
 			<MaxWidthWrapper>
-				<div className="flex flex-col items-center justify-center w-full text-center bg-gradient-to-t from-background mt-8">
+				<div className="flex flex-col items-center justify-center w-full text-center bg-gradient-to-t from-background ">
 
 					<AnimationContainer delay={0.2} className="relative  px-2 bg-transparent w-full">
 						<div className="absolute md:top-[10%] left-1/2 gradient w-3/4 -translate-x-1/2 h-1/4 md:h-1/3 inset-0 blur-[5rem] animate-image-glow"></div>
@@ -71,7 +66,7 @@ export default function Home() {
 			</MaxWidthWrapper >
 			{/* </div> */}
 			<MaxWidthWrapper className="py-10">
-				{/* <AnimationContainer delay={0.1}>
+				<AnimationContainer delay={0.1}>
 					<div className="flex flex-col items-center lg:items-center justify-center w-full py-8 max-w-xl mx-auto" id="tarifs">
 						<MagicBadge title="Tarification simple" />
 						<h2 className="text-center lg:text-center text-3xl md:text-5xl !leading-[1.1] font-medium font-heading text-foreground mt-6">
@@ -81,33 +76,12 @@ export default function Home() {
 							Get started with Linkify today and enjoy more features with our pro plans.
 						</p>
 					</div>
-				</AnimationContainer> */}
-				<AnimationContainer delay={0.2} >
+				</AnimationContainer>
+				<AnimationContainer delay={0.2}>
 					<Pricing />
 				</AnimationContainer>
+			</MaxWidthWrapper>
 
-			</MaxWidthWrapper>
-			<MaxWidthWrapper className="mt-20 max-w-[100vw] overflow-x-hidden overflow-y-hidden scrollbar-hide">
-				<AnimationContainer delay={0.1}>
-					<LampContainer>
-						<div className="flex flex-col items-center justify-center relative w-full text-center">
-							<h2 className="bg-gradient-to-b from-neutral-200 to-neutral-400 py-4 bg-clip-text text-center text-4xl md:text-7xl !leading-[1.15] font-medium font-heading tracking-tight text-transparent mt-8">
-							Next.js, React, Tailwind… et toute la puissance du web moderne
-							</h2>
-							<p className="text-muted-foreground mt-6 max-w-md mx-auto">
-								Sites performants avec Next.js, React, Tailwind, Node.js, Radix UI & co.
-								Une stack moderne, pour un impact réel."
-							</p>
-							<div className="mt-6">
-								<Button>
-									Demande personnalisée
-									<ArrowRightIcon className="w-4 h-4 ml-2" />
-								</Button>
-							</div>
-						</div>
-					</LampContainer>
-				</AnimationContainer>
-			</MaxWidthWrapper>
 		</main>
 	);
 }
