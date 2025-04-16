@@ -1,7 +1,6 @@
 "use client";
 
 import { FaLocationArrow } from "react-icons/fa6";
-
 import { templates } from "@/data";
 import { PinContainer } from "@/components/Pin";
 
@@ -10,15 +9,8 @@ const Templates = () => {
     <div className="py-20">
       <h1 className=" font-bold text-4xl md:text-5xl text-center">
         Une selection de{" "}
-
-        {/* <span className="text-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500 bg-clip-text inline-bloc"> */}
-        {/* <span className="text-transparent bg-gradient-to-r from-custom-violet to-custom-white bg-clip-text inline-block"> */}
-        {/* <span className="text-transparent bg-gradient-to-r from-indigo-500 via-purple-400 to-pink-500 bg-clip-text inline-block"> */}
         <span className="text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text inline-block">
-          {/* <span className="text-transparent bg-gradient-to-r from-violet-500 to-primary bg-clip-text inline-bloc"> */}
-
           templates
-
         </span>
       </h1>
       <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
@@ -77,11 +69,10 @@ const Templates = () => {
 
                 <div className="flex justify-center items-center">
                   <p className="flex lg:text-xl md:text-xs text-sm text-purple">
-                    {/* <a href='#' title= {"Visite le site " + item.title} target="_blank"> */}
+                    
                     <a href='/kkk' title={"Visite le site " + item.title} onClick={(e) => {
                       e.stopPropagation(); // on bloque le clic du container
-                      // PAS de e.preventDefault() ici !
-                      // Comme ça, le lien fonctionne normalement
+                     
                     }}>
                       Voir le Site Live</a>
                   </p>

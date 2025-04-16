@@ -11,11 +11,11 @@ import { Button } from "@/components/ui/button";
 import { ArrowRightIcon, CreditCardIcon, StarIcon } from "lucide-react";
 
 export const metadata: Metadata = {
-	title: 'Web apps nouvelle génération | Vous méritez mieux qu’un site vitrine',
-	description: 'Des fonctionnalités avancées, une interface d’exception, des performances optimisées. Nous concevons des applications web sur-mesure avec Next.js, alliant design et puissance.',
+	title: 'Web apps nouvelle génération | Vous méritez mieux qu&rbrace;un site vitrine',
+	description: 'Des fonctionnalités avancées, une interface d&rbrace;exception, des performances optimisées. Nous concevons des applications web sur-mesure avec Next.js, alliant design et puissance.',
 	openGraph: {
-		title: 'Web apps nouvelle génération | Vous méritez mieux qu’un site vitrine',
-		description: 'Des fonctionnalités avancées, une interface d’exception, des performances optimisées. Création d’applications web haut de gamme avec Next.js.',
+		title: 'Web apps nouvelle génération | Vous méritez mieux qu&rbrace;un site vitrine',
+		description: 'Des fonctionnalités avancées, une interface d&rbrace;exception, des performances optimisées. Création d&rbrace;applications web haut de gamme avec Next.js.',
 		url: 'https://appliq.fr',
 		siteName: 'Ton Nom d’Agence',
 		images: [
@@ -42,8 +42,6 @@ export default function Home() {
 		<main className="overflow-x-hidden scrollbar-hide size-full">
 
 			<Hero />
-	
-
 			<MaxWidthWrapper>
 				<div className="flex flex-col items-center justify-center w-full text-center bg-gradient-to-t from-background mt-8">
 
@@ -56,25 +54,17 @@ export default function Home() {
 								duration={12}
 								delay={9}
 							/>
-
-							<Templates />
-
-
-					
-							<div className="absolute bottom-0 md:-bottom-8 inset-x-0 w-full h-1/4 bg-gradient-to-t from-background z-50"></div> */}
+							<Templates />			
+							<div className="absolute bottom-0 md:-bottom-8 inset-x-0 w-full h-1/4 bg-gradient-to-t from-background z-50"></div> 
 						</div>
 					</AnimationContainer>
-
 				</div>
-
 			</MaxWidthWrapper >
-			{/* </div> */}
+
 			<MaxWidthWrapper className="py-10">
-				
 				<AnimationContainer delay={0.2} >
 					<Pricing />
 				</AnimationContainer>
-
 			</MaxWidthWrapper>
 			<MaxWidthWrapper className="mt-20 max-w-[100vw] overflow-x-hidden overflow-y-hidden scrollbar-hide">
 				<AnimationContainer delay={0.1}>
