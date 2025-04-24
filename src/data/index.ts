@@ -47,7 +47,6 @@ import { ReactElement, ElementType } from "react";
         cmsurl :"https://www.sanity.io/",
         icon: GlobeIcon,
     },
-    ,
     {
         target: "ecomerce",
         name: "ecomerce",
@@ -61,6 +60,23 @@ import { ReactElement, ElementType } from "react";
         priceplan: 2,
         cms:"Strapi",
         cmsurl :"https://strapi.io/",
+        icon: ShoppingCartIcon ,
+    }
+    ,
+    {
+        target: "Réseau Social",
+        name: "social",
+        id: 3,
+        title: "Réseau Social",
+        des: "Réseau social personnalisé développé avec Next.js, intégrant un système d'abonnement payant et la vente de produits dérivés",
+        img: "/p4.png",
+        iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
+        link: "https://shareclub.appliq.fr/",
+
+        goto: "/templates/social",
+        priceplan: 3,
+        cms:"Inclu",
+        // cmsurl :"https://strapi.io/",
         icon: ShoppingCartIcon ,
     }
     // {
