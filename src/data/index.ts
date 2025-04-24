@@ -1,5 +1,5 @@
 
-import { HelpCircleIcon, LineChartIcon, Link2Icon, LockIcon, NewspaperIcon, QrCodeIcon, CameraIcon, GlobeIcon ,StoreIcon ,ShoppingCartIcon  } from "lucide-react";
+import { HelpCircleIcon, LineChartIcon, Link2Icon, LockIcon, NewspaperIcon, QrCodeIcon, CameraIcon, GlobeIcon, StoreIcon, ShoppingCartIcon } from "lucide-react";
 import { ReactElement, ElementType } from "react";
 // export interface TemplateProps {
 //     target: string;
@@ -16,7 +16,7 @@ import { ReactElement, ElementType } from "react";
 //     cmsurl: string;
 //     icon: ElementType;
 //   }
-  export const templates  = [
+export const templates = [
     {
         target: "Photographes",
         name: "galerie",
@@ -28,8 +28,8 @@ import { ReactElement, ElementType } from "react";
         link: "https://gallery.appliq.fr/",
         goto: "/templates/galerie",
         priceplan: 1,
-        cms:"Cloudinary",
-        cmsurl :"https://cloudinary.com/",
+        cms: "Cloudinary",
+        cmsurl: "https://cloudinary.com/",
         icon: CameraIcon,
     },
     {
@@ -43,8 +43,8 @@ import { ReactElement, ElementType } from "react";
         link: "https://laurentremond.com/",
         goto: "/templates/cv",
         priceplan: 1,
-        cms:"Sanity",
-        cmsurl :"https://www.sanity.io/",
+        cms: "Sanity",
+        cmsurl: "https://www.sanity.io/",
         icon: GlobeIcon,
     },
     {
@@ -58,9 +58,9 @@ import { ReactElement, ElementType } from "react";
         link: "",
         goto: "/templates/ecomerce",
         priceplan: 2,
-        cms:"Strapi",
-        cmsurl :"https://strapi.io/",
-        icon: ShoppingCartIcon ,
+        cms: "Strapi",
+        cmsurl: "https://strapi.io/",
+        icon: ShoppingCartIcon,
     }
     ,
     {
@@ -75,9 +75,9 @@ import { ReactElement, ElementType } from "react";
 
         goto: "/templates/social",
         priceplan: 3,
-        cms:"Inclu",
-        // cmsurl :"https://strapi.io/",
-        icon: ShoppingCartIcon ,
+        cms: "Inclu",
+        cmsurl :"",
+        icon: ShoppingCartIcon,
     }
     // {
     //   id: 2,
@@ -114,7 +114,7 @@ export const NAV_LINKS = [
             tagline: tpl.des,
             href: tpl.goto,
             icon: tpl.icon, // ou une icône personnalisée selon tpl si tu veux
-          })),
+        })),
         // menu: [
         //     {
         //         title: "Link Shortening",
@@ -169,7 +169,7 @@ export const NAV_LINKS = [
                 icon: HelpCircleIcon,
             },
         ]
-        
+
     },
     {
         title: "Contact",
