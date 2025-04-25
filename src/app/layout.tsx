@@ -27,7 +27,7 @@ export default function RootLayout({
 			</head>
 			{/* <body className="overflow-x-hidden" > */}
 			<body className={`overflow-x-hidden ${inter.className}`}>
-				<ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
+				<ThemeProvider attribute='class' defaultTheme='dark' enableSystem disableTransitionOnChange>
 					<TanStackProvider>
 
 						<Navbar />
