@@ -144,7 +144,7 @@ export const NAV_LINKS = [
     },
     {
         title: "Tarifs",
-        href: "#tarifs",
+        href: "/#tarifs",
     },
     {
         title: "Ressources",
