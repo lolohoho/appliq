@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import TanStackProvider from "@/components/providers/TanStackProvider";
 import Footer from "@/components/Footer";
-import Head from 'next/head'
+// import Head from 'next/head'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,24 +25,21 @@ export default function RootLayout({
 				{process.env.NODE_ENV === 'development' && (
 					<meta name="google" content="notranslate" />
 				)}
-
+				<script async src="https://www.googletagmanager.com/gtag/js?id=AW-10871683783"></script>
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `
+							window.dataLayer = window.dataLayer || [];
+							function gtag(){dataLayer.push(arguments);}
+							gtag('js', new Date());
+							gtag('config', 'AW-10871683783');
+						`,
+					}}
+				/>
 			</head>
 			{/* <body className="overflow-x-hidden" > */}
 			<body className={`overflow-x-hidden ${inter.className}`}>
-				<Head>
-					{/* Balises Google Tag (gtag.js) */}
-					<script async src="https://www.googletagmanager.com/gtag/js?id=AW-10871683783"></script>
-					<script
-						dangerouslySetInnerHTML={{
-							__html: `
-								window.dataLayer = window.dataLayer || [];
-								function gtag(){dataLayer.push(arguments);}
-								gtag('js', new Date());
-								gtag('config', 'AW-10871683783');
-							`,
-						}}
-					/>
-				</Head>
+
 				<ThemeProvider attribute='class' defaultTheme='dark' enableSystem disableTransitionOnChange>
 					<TanStackProvider>
 
