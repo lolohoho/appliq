@@ -10,8 +10,8 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: "AppliQ - Buy your App",
-	description: "Learn how to integrate Stripe subscriptions with Next.js",
+	title: "Web apps nouvelle génération | Vous méritez mieux qu&rbrace;un site vitrine",
+	description: "Des fonctionnalités avancées, une interface d&rbrace;exception, des performances optimisées. Nous concevons des applications web sur-mesure avec Next.js, alliant design et puissance.",
 };
 
 export default function RootLayout({
